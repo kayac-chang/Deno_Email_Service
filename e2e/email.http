@@ -1,0 +1,16 @@
+@api = http://localhost:3000/email
+
+### GET ALL EMAIL
+GET {{api}}
+
+### CREATE AN EMAIL
+POST {{api}}
+Content-Type: application/json
+
+{
+    "send_from": "kayac",
+    "organization": "example",
+    "address": "test@example.com",
+    "phone": "123456",
+    "content": "test"
+}

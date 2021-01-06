@@ -1,0 +1,25 @@
+version: "3"
+
+services:
+  db:
+    build:
+      context: "."
+      dockerfile: "./docker/postgres.Dockerfile"
+    ports:
+      - "${PG_PORT}:5432"
+    volumes:
+      - ./.db:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_USER=${PG_USER}
+      - POSTGRES_PASSWORD=${PG_PASSWORD}
+      - POSTGRES_DB=${PG_DATABASE}
+      - POSTGRES_HOST=${PG_HOST}
+
+  service:
+    build:
+      context: "."
+      dockerfile: "./docker/deno.Dockerfile"
+    ports:
+      - "${PORT}:${PORT}"
+    depends_on:
+      - db

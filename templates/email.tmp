@@ -1,0 +1,9 @@
+
+Send From: <%= send_from %> 
+Organization: <%= organization %> 
+Email Address: <%= address %> 
+Phone Number: <%= phone %> 
+Date: <%= created_on %>
+======================================
+
+<%= content %>
